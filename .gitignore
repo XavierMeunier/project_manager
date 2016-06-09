@@ -43,4 +43,6 @@ bower.json
 .byebug_history
 
 
-conf.sublime-project
+# Sublime files
+*.sublime-project
+*.sublime-workspace
