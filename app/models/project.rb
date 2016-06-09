@@ -14,6 +14,8 @@
 
 class Project < ActiveRecord::Base
 
+  belongs_to: :category
+
   validates :name,        presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
   validates :latitude,    presence: true
