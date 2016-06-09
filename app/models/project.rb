@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
   validates :latitude,    presence: true
   validates :longitude,   presence: true
   validates :amount,      presence: true
+  validates :category_id, presence: true
   validates_numericality_of :amount, greater_than: 0
 
 end

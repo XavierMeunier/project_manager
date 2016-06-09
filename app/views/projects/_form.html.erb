@@ -31,6 +31,10 @@
     <%= f.label :amount %><br>
     <%= f.number_field :amount %>
   </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.collection_select(:category_id, @categories, :id, :name, {:prompt => 'Please select a category'}) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

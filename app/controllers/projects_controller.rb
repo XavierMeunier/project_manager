@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :create, :edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -67,8 +68,12 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def set_categories
+      @categories = Category.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :latitude, :longitude, :amount)
+      params.require(:project).permit(:name, :description, :latitude, :longitude, :amount, :category_id)
     end
 end

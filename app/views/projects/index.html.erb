@@ -10,6 +10,7 @@
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Amount</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= project.latitude %></td>
         <td><%= project.longitude %></td>
         <td><%= project.amount %></td>
+        <td><%= project.category.name %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
