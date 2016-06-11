@@ -15,3 +15,22 @@
 @import "bootstrap";
 
 @import "projects";
+
+.bottom5 {
+  margin-bottom:5px
+}
+.bottom10 {
+  margin-bottom:10px
+}
+.bottom20 {
+  margin-bottom:20px
+}
+
+.hidden_overflow {
+  overflow: hidden;
+}
+
+.full {
+  padding-bottom: 100%;
+  margin-bottom: -100%;
+}

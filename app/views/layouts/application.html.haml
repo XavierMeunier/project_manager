@@ -1,13 +1,14 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ProjectManager
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyD7GrDMhokm0wUdNDnIIg6pHZtzcQCJZMo&region=FR"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{:class => "#{controller_name} #{action_name}"}
+  %body{class: "#{controller_name} #{action_name}"}
     / Included here for turbolinks refresh
     = Gon::Base.render_data
-    = yield
+    .container
+      = yield

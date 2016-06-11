@@ -18,6 +18,6 @@ FactoryGirl.define do
     description "MyString"
     address "MyString"
     category_id 1
-    amount 1
+    association :category
   end
 end

@@ -1,4 +1,4 @@
-= form_for(@category) do |f|
+= simple_form_for(@category, html: { class: 'form-inline bottom10' }) do |f|
   - if @category.errors.any?
     #error_explanation
       %h2
@@ -7,9 +7,8 @@
       %ul
         - @category.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .actions
-    = f.submit
+  = f.input  :name,   wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}
+  = f.button :submit, class: "btn btn-default"
+
+.info
+  Fields with * are required

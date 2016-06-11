@@ -1,4 +1,4 @@
-= form_for(@project) do |f|
+= simple_form_for(@project, html: { class: 'bottom10' }) do |f|
   - if @project.errors.any?
     #error_explanation
       %h2
@@ -7,26 +7,19 @@
       %ul
         - @project.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :description
-    %br/
-    = f.text_field :description
-  .field
-    = f.label :address
-    %br/
-    = f.text_field :address
-  = button_tag "Find my location", id: "project_address_find"
-  .field
-    = f.label :amount
-    %br/
-    = f.number_field :amount
-  .field
-    = f.label :category
-    %br/
-    = f.collection_select(:category_id, @categories, :id, :name, {:prompt => 'Please select a category'})
-  .actions
-    = f.submit
+
+  = f.input :name, wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}
+
+  = f.input :description,   wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}
+
+  = f.input :address, wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}
+  = button_tag "Find my location", id: "project_address_find", class: "btn btn-default"
+
+  = f.input :amount, wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}
+
+  = f.input :category, collection: @categories, label_method: :name, value_method: :id, label: "Category", prompt: 'Please select a category', wrapper_html: {class: "form-group"}, input_html: {class: "form-control"}, required: true
+
+  = f.button :submit, class: "btn btn-default"
+
+.info
+  Fields with * are required

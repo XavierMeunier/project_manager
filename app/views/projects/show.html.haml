@@ -1,20 +1,24 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @project.name
-%p
-  %strong Description:
-  = @project.description
-%p
-  %strong Address:
-  = @project.address
-%p
-  %strong Amount:
-  = @project.amount
-%p
-  %strong Category:
-  = @project.category.name
-#map
-= link_to 'Edit', edit_project_path(@project)
-|
-= link_to 'Back', projects_path
+.row.bottom10
+  %p#notice= notice
+.row.bottom20.hidden_overflow
+  .col-md-4.hidden_overflow
+    %p
+      %strong Name:
+      = @project.name
+    %p
+      %strong Description:
+      = @project.description
+    %p
+      %strong Address:
+      = @project.address
+    %p
+      %strong Amount:
+      = @project.amount
+    %p.bottom20
+      %strong Category:
+      = @project.category.name
+    = link_to 'Edit', edit_project_path(@project), class: "btn btn-default"
+    |
+    = link_to 'Back', projects_path, class: "btn btn-default"
+  .col-md-8.full
+    #map

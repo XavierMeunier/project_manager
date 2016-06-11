@@ -1,7 +1,8 @@
 window.App ||= {}
 
 App.init = ->
-  # To init on all pages
+  # Initialize tooltip on bootstrap
+  $("a, span, i, div").tooltip()
 
 $(document).on "page:change", ->
   App.init()

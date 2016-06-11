@@ -1,6 +1,8 @@
-%h1 Editing Project
-= render 'form'
-#map
-= link_to 'Show', @project
-|
-= link_to 'Back', projects_path
+.row.bottom20
+  %h1 Editing Project
+.row.bottom20
+  = render 'form'
+.row
+  = link_to 'Show', @project, class: "btn btn-default"
+  |
+  = link_to 'Back', projects_path, class: "btn btn-default"
