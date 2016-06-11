@@ -18,3 +18,7 @@ test:
   database: project_manager_test_db
   username: project_manager_user
   password:
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
