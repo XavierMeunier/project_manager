@@ -16,6 +16,11 @@
 
 @import "projects";
 
+/**********************/
+/* Add simple class */
+/**********************/
+
+// Space class
 .bottom5 {
   margin-bottom:5px
 }
@@ -26,10 +31,10 @@
   margin-bottom:20px
 }
 
+// Layout class
 .hidden_overflow {
   overflow: hidden;
 }
-
 .full {
   padding-bottom: 100%;
   margin-bottom: -100%;

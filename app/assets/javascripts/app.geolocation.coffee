@@ -4,10 +4,12 @@ class App.Geolocation
     this.address_field_id = address_field_id
     return
 
+  # Give feedback to users on geolocation search
   set_search_in_progress: ->
     $(this.address_field_id).val("Search in progress...")
     return
 
+  # Give feedback to users when errors occur
   set_search_failed: (message)->
     $(this.address_field_id).val("Search of position failed: " + message)
     return

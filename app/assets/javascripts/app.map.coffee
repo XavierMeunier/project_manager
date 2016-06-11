@@ -1,10 +1,10 @@
 class App.Map
-  # Set field to fill latitude & longitude
+  # Initialize map field & style
   constructor: (map_id) ->
     this.map_id = map_id
-
     this.styles = [{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#02ae7f"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#02ae7f"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#36c297"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#7fe3cc"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#027858"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#edffec"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"hue":"#3300ff"}]},{"featureType":"road","elementType":"labels","stylers":[{"hue":"#bfed26"}]}]
 
+  # Find latitude & longitude from address
   display_address: (address) ->
     map = this
     map.address = address
@@ -22,6 +22,7 @@ class App.Map
       console.log err
     return
 
+  # Render Gmaps
   render: ->
     this_map = this
     mapOptions =
