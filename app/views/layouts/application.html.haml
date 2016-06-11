@@ -10,5 +10,7 @@
   %body{class: "#{controller_name} #{action_name}"}
     / Included here for turbolinks refresh
     = Gon::Base.render_data
+    
+    = render partial: "layouts/nav"
     .container
       = yield
