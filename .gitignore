@@ -43,6 +43,9 @@ bower.json
 .byebug_history
 
 
+# Mac files
+.DS_Store
+
 # Sublime files
 *.sublime-project
 *.sublime-workspace
