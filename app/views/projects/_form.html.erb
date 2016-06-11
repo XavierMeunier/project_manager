@@ -20,13 +20,12 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
+
+  <%= button_tag "Find my location", id: "project_address_find"  %>
+
   <div class="field">
     <%= f.label :amount %><br>
     <%= f.number_field :amount %>
