@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :set_categories, only: [:new, :create, :edit, :update]
+  before_action :set_form_params, only: [:new, :create, :edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -16,10 +16,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    gon.address = @project.address
   end
 
   # GET /projects/1/edit
   def edit
+    gon.address = @project.address
   end
 
   # POST /projects
@@ -32,6 +34,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
+        gon.address = @project.address
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -46,6 +49,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
+        gon.address = @project.address
         format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -68,12 +72,12 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
-    def set_categories
+    def set_form_params
       @categories = Category.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :latitude, :longitude, :amount, :category_id)
+      params.require(:project).permit(:name, :description, :address, :amount, :category_id)
     end
 end
