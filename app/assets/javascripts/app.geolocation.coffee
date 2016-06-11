@@ -4,6 +4,14 @@ class App.Geolocation
     this.address_field_id = address_field_id
     return
 
+  set_search_in_progress: ->
+    $(this.address_field_id).val("Search in progress...")
+    return
+
+  set_search_failed: (message)->
+    $(this.address_field_id).val("Search of position failed: " + message)
+    return
+
   # Write address in input field
   get_address: ->
     geo = this
@@ -39,19 +47,23 @@ class App.Geolocation
   browser_fail: (error) ->
     switch error.code
       when error.TIMEOUT
-        console.log 'Browser geolocation error !\n\nTimeout.'
+        this.set_search_failed("Timeout")
       when error.PERMISSION_DENIED
         # If permission denied is due to browser (Chrome on HTTPS) or user (do not continue if it's user's will)
         if error.message.indexOf('Only secure origins are allowed') == 0
           this.try_api.call(this)
+        else
+          this.set_search_failed("Permission denied")
       when error.POSITION_UNAVAILABLE
         console.log 'Browser geolocation error !\n\nPosition unavailable.'
+        this.set_search_failed("Position unavailable")
     return
 
   # Fing position of visitor through HTML5
   find_position: (force = false)->
     geo = this
     geo.force = force
+    geo.set_search_in_progress.call(geo)
     if navigator.geolocation
       navigator.geolocation.getCurrentPosition ((position) ->
         geo.lat = position.coords.latitude
@@ -63,13 +75,6 @@ class App.Geolocation
       maximumAge: 50000
       timeout: 20000
       enableHighAccuracy: true
-    return
-
-typewatch = do ->
-  timer = 0
-  (callback, ms) ->
-    clearTimeout timer
-    timer = setTimeout(callback, ms)
     return
 
 $(document).on "page:change", ->
