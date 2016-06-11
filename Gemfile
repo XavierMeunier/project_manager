@@ -31,6 +31,9 @@ gem 'annotate'
 # Allow to simply give data to js files
 gem 'gon'
 
+# HAML
+gem "haml-rails", "~> 0.9"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

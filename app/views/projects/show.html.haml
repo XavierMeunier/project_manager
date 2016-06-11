@@ -1,0 +1,20 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @project.name
+%p
+  %strong Description:
+  = @project.description
+%p
+  %strong Address:
+  = @project.address
+%p
+  %strong Amount:
+  = @project.amount
+%p
+  %strong Category:
+  = @project.category.name
+#map
+= link_to 'Edit', edit_project_path(@project)
+|
+= link_to 'Back', projects_path
