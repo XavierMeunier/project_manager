@@ -57,14 +57,14 @@ group :development, :test do
   # Fake data for factories
   gem 'faker'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console',                '~> 2.0'
-
   # Allow to launch browser for capybara
   gem 'launchy'
 end
 
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console',                '~> 2.0'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -72,6 +72,7 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
