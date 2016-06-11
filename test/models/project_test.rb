@@ -5,11 +5,11 @@
 #  id          :integer          not null, primary key
 #  name        :string
 #  description :string
-#  latitude    :decimal(, )
-#  longitude   :decimal(, )
 #  amount      :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category_id :integer
+#  address     :text
 #
 
 require 'test_helper'
